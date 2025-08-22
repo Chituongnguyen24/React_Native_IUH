@@ -1,14 +1,15 @@
-import { Person } from "./bai1.js";
+import { Person } from "./bai01.js";
 import { Account } from "./bai10.js";
 import { Cat, Dog } from "./bai11.js";
-import { Student } from "./bai2.js";
-import { Car } from "./bai3.js";
-import { Rectangle } from "./bai4.js";
-import { BankAccount } from "./bai5.js";
-import { Book } from "./bai6.js";
-import { User } from './bai7.js';
-import { Product } from "./bai8.js";
-import { Chicken, Cow } from "./bai9.js";
+import { Bird, Fish } from "./bai12.js";
+import { Student } from "./bai02.js";
+import { Car } from "./bai03.js";
+import { Rectangle } from "./bai04.js";
+import { BankAccount } from "./bai05.js";
+import { Book } from "./bai06.js";
+import { User } from './bai07.js';
+import { Product } from "./bai08.js";
+import { Chicken, Cow } from "./bai09.js";
 
 
 
@@ -93,3 +94,10 @@ const dog = new Dog("Buddy");
 const cat = new Cat("Whiskers");
 dog.bark();
 cat.meow();
+
+//bai12
+console.log("Bai12: Abstract Class");
+const bird = new Bird();
+bird.fly();
+const fish = new Fish();
+fish.swim();

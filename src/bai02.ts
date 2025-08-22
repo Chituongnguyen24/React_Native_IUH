@@ -1,4 +1,4 @@
-import { Person } from "./bai1.js";
+import { Person } from "./bai01.js";
 
 export class Student extends Person {
     grade: string;
