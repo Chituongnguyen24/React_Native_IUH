@@ -16,6 +16,15 @@ import { Library } from "./bai15.js";
 import { Box } from "./bai16.js";
 import { Logger } from "./bai17.js";
 import { MathUtil } from "./bai18.js";
+import { Chair, Furniture, Sofa, Table } from "./bai19.js";
+import { Bike, Car1 } from "./bai20.js";
+import { Repository } from "./bai21.js";
+import { Stack } from "./bai22.js";
+import { CardPayment, CashPayment } from "./bai23.js";
+import { AirConditioner, Fan } from "./bai24.js";
+import { Shape1 } from "./bai25.js";
+import { Order } from "./bai26.js";
+import { Teacher } from "./bai27.js";
 
 
 
@@ -151,3 +160,82 @@ console.log(MathUtil.add(5, 3));
 console.log(MathUtil.subtract(5, 3));
 console.log(MathUtil.multiply(5, 3));
 console.log(MathUtil.divide(5, 3));
+
+//bai19
+console.log("Bai19: Polymorphism");
+const furniture = new Furniture();
+furniture.describe();
+
+const chair = new Chair();
+chair.describe();
+
+const table = new Table();
+table.describe();
+
+const sofa = new Sofa();
+sofa.describe();
+
+//bai20
+console.log("Bai20: Interface Vehicle");
+const car1 = new Car1();
+car1.start();
+car1.stop();
+
+const bike = new Bike();
+bike.start();
+bike.stop();
+
+//Bai21
+console.log("Bai21: Generic Repository");
+const carRepository = new Repository<Car1>();
+carRepository.add(car1);
+const bikeRepository = new Repository<Bike>();
+bikeRepository.add(bike);
+console.log("Cars in repository:", carRepository.getAll());
+console.log("Bikes in repository:", bikeRepository.getAll());
+
+//Bai22
+console.log("Bai22 Stack");
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log("Stack size:", stack.size());
+console.log("Top element:", stack.peek());
+console.log("Popped element:", stack.pop());
+console.log("Stack size after pop:", stack.size());
+
+//Bai23
+console.log("Bai23 Payment");
+const cashPayment = new CashPayment();
+cashPayment.pay(100);
+
+const cardPayment = new CardPayment();
+cardPayment.pay(200);
+
+//Bai24
+console.log("Bai24 Appliance");
+const fan = new Fan();
+fan.turnOn();
+
+const airConditioner = new AirConditioner();
+airConditioner.turnOn();
+
+//Bai25
+console.log("Bai25 Shape");
+Shape1.describe();
+
+//Bai26
+console.log("Bai26: Order with list of products");
+const order = new Order();
+order.addProduct(new Product("Monitor", 300));
+order.addProduct(new Product("Keyboard", 50));
+order.addProduct(new Product("Mouse", 25));
+order.calculateTotal();
+console.log("Total Order Amount:", order.calculateTotal());
+
+//Bai27
+console.log("Bai27: Teacher Class");
+const teacher = new Teacher("John Doe", 30, "Mathematics");
+teacher.display();
+teacher.teach();

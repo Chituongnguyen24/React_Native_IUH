@@ -7,6 +7,10 @@ export class Person {
     this.age = age;
   }
 
+  getName(): string {
+    return this.name;
+  }
+
   display() {
     console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
   }
