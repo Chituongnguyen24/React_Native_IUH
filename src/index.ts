@@ -25,6 +25,9 @@ import { AirConditioner, Fan } from "./bai24.js";
 import { Shape1 } from "./bai25.js";
 import { Order } from "./bai26.js";
 import { Teacher } from "./bai27.js";
+import { Cat2, Dog2 } from "./bai28.js";
+import { Car3, Robot } from "./bai29.js";
+import { School } from "./bai30.js";
 
 
 
@@ -239,3 +242,26 @@ console.log("Bai27: Teacher Class");
 const teacher = new Teacher("John Doe", 30, "Mathematics");
 teacher.display();
 teacher.teach();
+
+//bai28
+console.log("Bai28: Animal Class");
+const dog2 = new Dog2();
+dog2.bark();
+
+const cat2 = new Cat2();
+cat2.meow();
+
+//bai29
+console.log("Bai29: Movable Interface");
+const car3 = new Car3();
+car3.move();
+
+const robot = new Robot();
+robot.move();
+
+//bai30
+console.log("Bai30: School Class");
+const school = new School();
+school.addTeacher(teacher);
+school.addStudent(student);
+school.displayInfo();
