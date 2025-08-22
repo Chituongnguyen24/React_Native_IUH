@@ -1,7 +1,4 @@
 import { Person } from "./bai01.js";
-import { Account } from "./bai10.js";
-import { Cat, Dog } from "./bai11.js";
-import { Bird, Fish } from "./bai12.js";
 import { Student } from "./bai02.js";
 import { Car } from "./bai03.js";
 import { Rectangle } from "./bai04.js";
@@ -10,6 +7,15 @@ import { Book } from "./bai06.js";
 import { User } from './bai07.js';
 import { Product } from "./bai08.js";
 import { Chicken, Cow } from "./bai09.js";
+import { Account } from "./bai10.js";
+import { Cat, Dog } from "./bai11.js";
+import { Bird, Fish } from "./bai12.js";
+import { Circle, Square } from "./bai13.js";
+import { Developer, Employee, Manager } from "./bai14.js";
+import { Library } from "./bai15.js";
+import { Box } from "./bai16.js";
+import { Logger } from "./bai17.js";
+import { MathUtil } from "./bai18.js";
 
 
 
@@ -101,3 +107,47 @@ const bird = new Bird();
 bird.fly();
 const fish = new Fish();
 fish.swim();
+//bai13
+console.log("Bai13: Abstract Class Shape");
+const square = new Square(5);
+console.log(square.getArea());
+
+const circle = new Circle(3);
+console.log(circle.getArea());
+
+//bai14
+console.log("Bai14: Employee Management Developer extends class");
+const employee=new Employee("John Doe", "Secretary", 75000);
+console.log(employee.getDetails());
+
+const manager = new Manager("Jane Smith", "Project Manager", 90000, "IT");
+console.log(manager.getDetails());
+
+const developer = new Developer("Alice Johnson", "Frontend Developer", 80000, "JavaScript");
+console.log(developer.getDetails());
+
+//bai15
+console.log("Bai15: Library Management System");
+const library = new Library();
+library.addBook(book1);
+library.addUser(user);
+library.displayBooks();
+library.displayUsers();
+//bai16
+console.log("Bai16: Generic Class");
+const numberBox = new Box<number>(123);
+console.log(numberBox.getValue());
+const stringBox = new Box<string>("Hello");
+console.log(stringBox.getValue());
+
+//bai17
+console.log("Bai17: Logger");
+const logger = Logger.getInstance();
+logger.log("This is a log message.");
+
+//bai18
+console.log("Bai18: Math Utility Class");
+console.log(MathUtil.add(5, 3));
+console.log(MathUtil.subtract(5, 3));
+console.log(MathUtil.multiply(5, 3));
+console.log(MathUtil.divide(5, 3));
