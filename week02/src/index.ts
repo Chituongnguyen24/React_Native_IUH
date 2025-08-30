@@ -1,4 +1,5 @@
 import { bai1 } from "./bai1.js";
+import { bai10 } from "./bai10.js";
 import { bai2 } from "./bai2.js";
 import { bai3 } from "./bai3.js";
 import { bai4 } from "./bai4.js";
@@ -6,6 +7,7 @@ import { bai5 } from "./bai5.js";
 import { bai6 } from "./bai6.js";
 import { bai7 } from "./bai7.js";
 import { bai8 } from "./bai8.js";
+import { bai9 } from "./bai9.js";
 
 async function run() {
   console.log("Bài 1");
@@ -57,6 +59,23 @@ async function run() {
     .catch((err) => {
       console.error("Bài 8 - Error:", err);
     });
+
+    bai9([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  .then((evens) => {
+    console.log("Bài 9 - Even numbers:", evens);
+  })
+  .catch((err) => {
+    console.error("Bài 9 - Error:", err.message);
+  });
+
+
+bai10(true)
+  .then((result) => {
+    console.log("Bài 10 - Result:", result);
+  })
+  .catch((err) => {
+    console.error("Bài 10 - Error:", err.message);
+  });
 }
 
 run();
