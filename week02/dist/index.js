@@ -1,5 +1,7 @@
 import { bai1 } from "./bai1.js";
 import { bai10 } from "./bai10.js";
+import { bai1 as bai11 } from "./bai11.js";
+import { bai12 } from "./bai12.js";
 import { bai2 } from "./bai2.js";
 import { bai3 } from "./bai3.js";
 import { bai4 } from "./bai4.js";
@@ -68,6 +70,20 @@ async function run() {
     })
         .catch((err) => {
         console.error("Bài 10 - Error:", err.message);
+    });
+    bai11()
+        .then((result) => {
+        console.log("Bài 11 - Result:", result);
+    })
+        .catch((err) => {
+        console.error("Bài 11 - Error:", err.message);
+    });
+    bai12()
+        .then((result) => {
+        console.log("Bài 12 - Result:", result);
+    })
+        .catch((err) => {
+        console.error("Bài 12 - Error:", err.message);
     });
 }
 run();
