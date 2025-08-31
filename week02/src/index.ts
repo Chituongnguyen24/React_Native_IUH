@@ -2,6 +2,8 @@ import { bai1 } from "./bai1.js";
 import { bai10 } from "./bai10.js";
 import { bai1 as bai11 } from "./bai11.js";
 import { bai12 } from "./bai12.js";
+import { bai13 } from "./bai13.js";
+import { bai14 } from "./bai14.js";
 import { bai2 } from "./bai2.js";
 import { bai3 } from "./bai3.js";
 import { bai4 } from "./bai4.js";
@@ -94,6 +96,24 @@ bai11()
     .catch((err) => {
       console.error("Bài 12 - Error:", err.message);
     });
+
+
+bai13()
+  .then((result) => {
+    console.log("Bài 13 - Result:", result);
+  })
+  .catch((err) => {
+    console.error("Bài 13 - Error:", err.message);
+  });
+
+  bai14(5)
+    .then((result) => {
+      console.log("Bài 14 - Result:", result);
+    })
+    .catch((err) => {
+      console.error("Bài 14 - Error:", err.message);
+    });
+
 }
 
 run();
