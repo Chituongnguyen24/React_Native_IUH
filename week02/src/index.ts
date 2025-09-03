@@ -4,7 +4,13 @@ import { bai1 as bai11 } from "./bai11.js";
 import { bai12 } from "./bai12.js";
 import { bai13 } from "./bai13.js";
 import { bai14 } from "./bai14.js";
+import { bai15 } from "./bai15.js";
+import { bai16 } from "./bai16.js";
+import { bai17 } from "./bai17.js";
+import { fetchUser } from "./bai18.js";
+import { fetchUsers } from "./bai19.js";
 import { bai2 } from "./bai2.js";
+import { fetchUserWithTimeout } from "./bai20.js";
 import { bai3 } from "./bai3.js";
 import { bai4 } from "./bai4.js";
 import { bai5 } from "./bai5.js";
@@ -113,7 +119,55 @@ bai13()
     .catch((err) => {
       console.error("Bài 14 - Error:", err.message);
     });
+bai15()
+    .then(() => {
+      console.log("Bài 15 - Completed");
+    })
+    .catch((err) => {
+      console.error("Bài 15 - Error:", err.message);
+    });
 
+    bai16()
+      .then(() => {
+        console.log("Bài 16 - Completed");
+      })
+      .catch((err) => {
+        console.error("Bài 16 - Error:", err.message);
+      });
+bai17()
+  .then(() => {
+    console.log("Bài 17 - Completed");
+  })
+  .catch((err) => {
+    console.error("Bài 17 - Error:", err.message);
+  });
+
+// Bài 18
+fetchUser(1)
+  .then((user) => {
+    console.log(">>> Bài 18 - User fetched:", user);
+  })
+  .catch((err) => {
+    console.error(">>> Bài 18 - Error:", err.message);
+  });
+
+
+// Bài 19
+fetchUsers([1, 2, 3])
+  .then((users) => {
+    console.log(">>> Bài 19 - Users fetched:", users);
+  })
+  .catch((err) => {
+    console.error(">>> Bài 19 - Error:", err.message);
+  });
+// Bài 20
+fetchUserWithTimeout(1)
+  .then((user) => {
+    console.log(">>> Bài 20 - User fetched:", user);
+  })
+  .catch((err) => {
+    console.error(">>> Bài 20 - Error:", err.message);
+  });
 }
 
 run();
