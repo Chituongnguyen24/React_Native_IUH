@@ -11,6 +11,12 @@ import { fetchUser } from "./bai18.js";
 import { fetchUsers } from "./bai19.js";
 import { bai2 } from "./bai2.js";
 import { fetchUserWithTimeout } from "./bai20.js";
+import { bai21 } from "./bai21.js";
+import bai22 from "./bai22.js";
+import { bai23 } from "./bai23.js";
+import bai24 from "./bai24.js";
+import bai25 from "./bai25.js";
+import bai27 from "./bai27.js";
 import { bai3 } from "./bai3.js";
 import { bai4 } from "./bai4.js";
 import { bai5 } from "./bai5.js";
@@ -168,6 +174,19 @@ fetchUserWithTimeout(1)
   .catch((err) => {
     console.error(">>> Bài 20 - Error:", err.message);
   });
+
+bai21()
+  .then((result) => {
+    console.log("Bài 21 - Result:", result);
+  })
+  .catch((err) => {
+    console.error("Bài 21 - Error:", err.message);
+  });
+bai22();
+bai23();
+bai24.postData();
+bai25.downloadFile();
+bai27.fetchWithRetry("https://jsonplaceholder.typicode.com/posts/1", 3);
 }
 
 run();

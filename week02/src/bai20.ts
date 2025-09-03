@@ -11,11 +11,10 @@ export async function fetchUserWithTimeout(id: number): Promise<User> {
       reject(new Error("Timeout error"));
     }, 2000);
 
-    // Giả lập API call (1–3 giây)
     const delay = Math.floor(Math.random() * 3000) + 500;
 
     setTimeout(() => {
-      clearTimeout(timer); // huỷ timeout nếu API trả về kịp
+      clearTimeout(timer); 
       resolve({
         id,
         name: `User ${id}`,
