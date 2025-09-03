@@ -16,8 +16,12 @@ import bai22 from "./bai22.js";
 import { bai23 } from "./bai23.js";
 import bai24 from "./bai24.js";
 import bai25 from "./bai25.js";
+import bai26 from "./bai26.js";
 import bai27 from "./bai27.js";
+import bai28 from "./bai28.js";
+import bai29 from "./bai29.js";
 import { bai3 } from "./bai3.js";
+import bai30 from "./bai30.js";
 import { bai4 } from "./bai4.js";
 import { bai5 } from "./bai5.js";
 import { bai6 } from "./bai6.js";
@@ -169,7 +173,11 @@ async function run() {
     bai23();
     bai24.postData();
     bai25.downloadFile();
+    bai26.waitFiveSeconds();
     bai27.fetchWithRetry("https://jsonplaceholder.typicode.com/posts/1", 3);
+    bai28.batchProcess();
+    bai29.queueProcess();
+    bai30.run();
 }
 run();
 //# sourceMappingURL=index.js.map
