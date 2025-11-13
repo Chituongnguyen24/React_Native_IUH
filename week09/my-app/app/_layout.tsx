@@ -6,7 +6,7 @@ import { Platform } from 'react-native';
 import { getCartCount, subscribe } from '../src/state/cartStore';
 
 const COLORS = {
-  primary: '#FF6B6B',
+  primary: '#2998e7ff',
   secondary: '#4ECDC4',
   background: '#F7F7F7',
   white: '#FFFFFF',

@@ -14,11 +14,11 @@ import {
   View
 } from 'react-native';
 import { CartItem } from '../src/models/types';
-import { checkout, getCartItems, removeItem } from '../src/repos/cart.repo';
+import { checkout, getCartItems, removeItem, updateQty } from '../src/repos/cart.repo';
 import { subscribe } from '../src/state/cartStore';
 
 const COLORS = {
-  primary: '#FF6B6B',
+  primary: '#2998e7ff',
   secondary: '#4ECDC4',
   background: '#F7F7F7',
   white: '#FFFFFF',
@@ -65,6 +65,19 @@ export default function InvoiceScreen() {
   const total = subtotal + vat;
 
   const formatVND = (n: number) => new Intl.NumberFormat('vi-VN').format(n) + '₫';
+
+  function handleDecrease(item: CartItem) {
+    if (item.qty <= 1) {
+      // delete directly when qty would go to 0
+      removeItem(item.product_id)
+        .then(() => load())
+        .catch((e) => Alert.alert('Lỗi', e?.message || 'Không thể xóa'));
+      return;
+    }
+    updateQty(item.product_id, item.qty - 1)
+      .then(() => load())
+      .catch((e) => Alert.alert('Lỗi', e?.message || 'Không thể cập nhật'));
+  }
 
   async function handlePay() {
     Alert.alert(
@@ -158,18 +171,25 @@ export default function InvoiceScreen() {
                   <Text style={styles.itemAmount}>
                     {formatVND(item.qty * Number(item.price))}
                   </Text>
-                  <TouchableOpacity onPress={() => {
-                    Alert.alert('Xóa sản phẩm', `Xóa "${item.name}" khỏi hóa đơn?`, [
-                      { text: 'Hủy', style: 'cancel' },
-                      { text: 'Xóa', style: 'destructive', onPress: () => {
-                        removeItem(item.product_id)
-                          .then(() => load())
-                          .catch((e) => Alert.alert('Lỗi', e?.message || 'Không thể xóa'));
-                      } }
-                    ]);
-                  }} style={{ marginTop:8 }}>
-                    <Ionicons name="trash-outline" size={18} color={COLORS.danger} />
-                  </TouchableOpacity>
+                  {/* Qty decrease + delete */}
+                  <View style={styles.qtyControl}>
+                    <TouchableOpacity style={styles.qtyButton} onPress={() => handleDecrease(item)}>
+                      <Ionicons name="remove" size={16} color={COLORS.white} />
+                    </TouchableOpacity>
+                    <Text style={styles.qtyText}>{item.qty}</Text>
+                    <TouchableOpacity onPress={() => {
+                      Alert.alert('Xóa sản phẩm', `Xóa \"${item.name}\" khỏi hóa đơn?`, [
+                        { text: 'Hủy', style: 'cancel' },
+                        { text: 'Xóa', style: 'destructive', onPress: () => {
+                          removeItem(item.product_id)
+                            .then(() => load())
+                            .catch((e) => Alert.alert('Lỗi', e?.message || 'Không thể xóa'));
+                        } }
+                      ]);
+                    }} style={{ marginLeft: 10 }}>
+                      <Ionicons name="trash-outline" size={18} color={COLORS.danger} />
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
             )}
@@ -322,6 +342,24 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '700',
     color: COLORS.primary,
+  },
+  qtyControl: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  qtyButton: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 8,
+  },
+  qtyText: {
+    marginHorizontal: 10,
+    minWidth: 20,
+    textAlign: 'center',
+    color: COLORS.text,
+    fontWeight: '600',
   },
   summaryCard: {
     backgroundColor: COLORS.white,
